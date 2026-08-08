@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04121d">
+<meta name="description" content="Orange Aquaculture — tank-bred clownfish and live feed cultures (phytoplankton, copepods, rotifers) raised in Chennai for India's marine aquarists.">
+<title>Orange Aquaculture — Chennai Marine Hatchery &amp; Live Feeds</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="water" aria-hidden="true"></div>
+<canvas id="sea" aria-hidden="true"></canvas>
+<div class="torch" aria-hidden="true"></div>
+
+<!-- shared defs: water refraction filter + clownfish symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="waterWobble" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.026" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="baseFrequency" dur="7s"
+          values="0.014 0.026;0.02 0.034;0.014 0.026" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
+    </filter>
+
+    <!-- nav-logo symbol: inline var() styles because CSS can't pierce <use> shadow trees -->
+    <symbol id="clownfish" viewBox="0 0 210 120">
+      <path style="fill:var(--fish-fin,#d97b0e)" d="M44,60 Q6,26 14,58 Q6,94 44,60 Z"/>
+      <path style="fill:var(--fish-fin,#d97b0e)" d="M70,30 Q104,4 150,26 Q120,14 84,30 Z"/>
+      <path style="fill:var(--fish-fin,#d97b0e)" d="M78,92 Q110,112 146,94 Q118,102 88,90 Z"/>
+      <ellipse style="fill:var(--fish-body,#f79420)" cx="112" cy="60" rx="70" ry="38"/>
+      <clipPath id="fishClipNav"><ellipse cx="112" cy="60" rx="70" ry="38"/></clipPath>
+      <g clip-path="url(#fishClipNav)" style="fill:#f6fbfa;stroke:#10222b;stroke-width:3">
+        <rect x="146" y="16" width="18" height="88" rx="9"/>
+        <path d="M100,18 q-14,20 -2,42 q10,20 -4,42 l22,0 q12,-22 2,-42 q-8,-22 2,-42 Z"/>
+        <rect x="52" y="26" width="14" height="70" rx="7"/>
+      </g>
+      <path style="fill:var(--fish-fin,#d97b0e)" d="M118,64 Q102,90 122,92 Q132,80 126,64 Z"/>
+      <circle cx="166" cy="50" r="6.5" fill="#10222b"/>
+      <circle cx="168" cy="48" r="2.2" fill="#f6fbfa"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Orange Aquaculture — home">
+    <svg class="fish-svg" viewBox="0 0 210 120" aria-hidden="true"><use href="#clownfish"></use></svg>
+    <span class="brand-word">
+      <span class="b1">ORANGE</span>
+      <span class="b2">AQUACULTURE</span>
+    </span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#feeds">Live feeds</a>
+    <a href="#fish">Clownfish</a>
+    <a href="#why">Why live</a>
+    <a href="#visit">Visit</a>
+    <a class="ig" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM to order</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 0 m ------------------------------------------------------------ -->
+  <section class="zone hero">
+    <div class="caustics" aria-hidden="true"></div>
+    <div class="shafts" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <span class="zone-tag">0 m &middot; Surface &middot; Chennai, India</span>
+      <h1>A reef is <span class="accent">grown</span>,<br>not caught.</h1>
+      <p class="lede">Tank-bred clownfish and live feed cultures — phytoplankton, copepods and
+        rotifers — raised in a Chennai marine hatchery for India's reefers.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#feeds">Begin the dive</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">@orangeaquaculture</a>
+      </div>
+      <p class="hero-hint"><b>Move your light</b> — the plankton scatter. <b>Click anywhere</b> to release a breath of bubbles.</p>
+      <p class="hero-secret">Every reef out there began as plankton.</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Descend</div>
+  </section>
+
+  <!-- −6 m ----------------------------------------------------------- -->
+  <section class="zone" id="feeds">
+    <div class="zone-head">
+      <span class="zone-tag reveal">−6 m &middot; Sunlight zone</span>
+      <h2 class="reveal">Live feed <span class="accent">cultures</span></h2>
+      <p class="lede reveal">The bottom of the food chain, bottled fresh. Every culture is grown
+        in-house and harvested to order — hover a bottle to give it a gentle swirl.</p>
+    </div>
+    <div class="card-row">
+      <article class="card reveal">
+        <div class="card-art"><div class="bottle bottle--phyto"><span class="swirl"></span><span class="label">Phyto &middot; 500&nbsp;ml</span></div></div>
+        <h3>Phytoplankton</h3>
+        <p class="sci">Live greenwater culture</p>
+        <p>Dense, living microalgae — the engine behind every thriving reef. Feed it to your pods, your corals and your filter feeders.</p>
+        <ul>
+          <li>Keeps copepod &amp; rotifer cultures productive</li>
+          <li>Food for corals, clams and feather dusters</li>
+          <li>Harvested at peak density, never stored</li>
+        </ul>
+        <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-art"><div class="bottle bottle--pods"><span class="swirl"></span><span class="label">Pods &middot; 500&nbsp;ml</span></div></div>
+        <h3>Copepods</h3>
+        <p class="sci">Live saltwater pods</p>
+        <p>The feed finicky fish ask for by name. Seed your refugium, or watch a stubborn mandarin finally start hunting.</p>
+        <ul>
+          <li>Natural prey for mandarins, wrasses &amp; fry</li>
+          <li>Establishes a self-sustaining pod population</li>
+          <li>Grazes nuisance film algae while it feeds</li>
+        </ul>
+        <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-art"><div class="bottle bottle--roti"><span class="swirl"></span><span class="label">Rotifers &middot; 500&nbsp;ml</span></div></div>
+        <h3>Rotifers</h3>
+        <p class="sci">Hatchery-grade live feed</p>
+        <p>First bites for fry. The same culture we raise our own clownfish larvae on, enriched with our live phyto.</p>
+        <ul>
+          <li>Essential first feed for breeding projects</li>
+          <li>Enriched on live greenwater, not powder</li>
+          <li>Sized right for larval mouths &amp; corals</li>
+        </ul>
+        <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- −14 m ---------------------------------------------------------- -->
+  <section class="zone" id="fish">
+    <div class="zone-head">
+      <span class="zone-tag reveal">−14 m &middot; Reef slope</span>
+      <h2 class="reveal">Tank-bred <span class="accent">clownfish</span></h2>
+      <p class="lede reveal">From egg clutch to juvenile, every fish is raised here on our own live
+        feeds — already eating, already hardy, never taken from a reef.</p>
+    </div>
+    <div class="card-row">
+      <article class="card reveal">
+        <div class="card-art">
+          <svg class="fish-svg" viewBox="0 0 210 120" role="img" aria-label="Ocellaris clownfish illustration">
+            <g class="tail-g"><path class="fin" d="M44,60 Q6,26 14,58 Q6,94 44,60 Z"/></g>
+            <path class="fin" d="M70,30 Q104,4 150,26 Q120,14 84,30 Z"/>
+            <path class="fin" d="M78,92 Q110,112 146,94 Q118,102 88,90 Z"/>
+            <ellipse class="body" cx="112" cy="60" rx="70" ry="38"/>
+            <clipPath id="fc1"><ellipse cx="112" cy="60" rx="70" ry="38"/></clipPath>
+            <g clip-path="url(#fc1)">
+              <rect class="band" x="146" y="16" width="18" height="88" rx="9"/>
+              <path class="band band-mid" d="M100,18 q-14,20 -2,42 q10,20 -4,42 l22,0 q12,-22 2,-42 q-8,-22 2,-42 Z"/>
+              <path class="band snow" d="M92,16 q-20,18 -6,44 q12,24 -6,46 l40,0 q16,-20 4,-44 q-10,-26 4,-46 Z"/>
+              <rect class="band" x="52" y="26" width="14" height="70" rx="7"/>
+            </g>
+            <g class="fin-p"><path class="fin" d="M118,64 Q102,90 122,92 Q132,80 126,64 Z"/></g>
+            <circle cx="166" cy="50" r="6.5" fill="#10222b"/>
+            <circle cx="168" cy="48" r="2.2" fill="#f6fbfa"/>
+          </svg>
+        </div>
+        <h3>Ocellaris</h3>
+        <p class="sci">Amphiprion ocellaris</p>
+        <p>The classic. Three clean white bands, an easy temperament, and the fish that starts most reefers' stories.</p>
+        <div class="card-foot"><span class="size">Tank-bred juvenile</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for stock</a></div>
+      </article>
+
+      <article class="card card--black reveal">
+        <div class="card-art">
+          <svg class="fish-svg" viewBox="0 0 210 120" role="img" aria-label="Black Ocellaris clownfish illustration">
+            <g class="tail-g"><path class="fin" d="M44,60 Q6,26 14,58 Q6,94 44,60 Z"/></g>
+            <path class="fin" d="M70,30 Q104,4 150,26 Q120,14 84,30 Z"/>
+            <path class="fin" d="M78,92 Q110,112 146,94 Q118,102 88,90 Z"/>
+            <ellipse class="body" cx="112" cy="60" rx="70" ry="38"/>
+            <clipPath id="fc2"><ellipse cx="112" cy="60" rx="70" ry="38"/></clipPath>
+            <g clip-path="url(#fc2)">
+              <rect class="band" x="146" y="16" width="18" height="88" rx="9"/>
+              <path class="band band-mid" d="M100,18 q-14,20 -2,42 q10,20 -4,42 l22,0 q12,-22 2,-42 q-8,-22 2,-42 Z"/>
+              <path class="band snow" d="M92,16 q-20,18 -6,44 q12,24 -6,46 l40,0 q16,-20 4,-44 q-10,-26 4,-46 Z"/>
+              <rect class="band" x="52" y="26" width="14" height="70" rx="7"/>
+            </g>
+            <g class="fin-p"><path class="fin" d="M118,64 Q102,90 122,92 Q132,80 126,64 Z"/></g>
+            <circle cx="166" cy="50" r="6.5" fill="#10222b"/>
+            <circle cx="168" cy="48" r="2.2" fill="#f6fbfa"/>
+          </svg>
+        </div>
+        <h3>Black Ocellaris</h3>
+        <p class="sci">Amphiprion ocellaris var.</p>
+        <p>Jet-black body, snow-white bands. Slower to darken, worth the wait — a striking centrepiece pair.</p>
+        <div class="card-foot"><span class="size">Tank-bred juvenile</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for stock</a></div>
+      </article>
+
+      <article class="card card--snow reveal">
+        <div class="card-art">
+          <svg class="fish-svg" viewBox="0 0 210 120" role="img" aria-label="Snowflake clownfish illustration">
+            <g class="tail-g"><path class="fin" d="M44,60 Q6,26 14,58 Q6,94 44,60 Z"/></g>
+            <path class="fin" d="M70,30 Q104,4 150,26 Q120,14 84,30 Z"/>
+            <path class="fin" d="M78,92 Q110,112 146,94 Q118,102 88,90 Z"/>
+            <ellipse class="body" cx="112" cy="60" rx="70" ry="38"/>
+            <clipPath id="fc3"><ellipse cx="112" cy="60" rx="70" ry="38"/></clipPath>
+            <g clip-path="url(#fc3)">
+              <rect class="band" x="146" y="16" width="18" height="88" rx="9"/>
+              <path class="band band-mid" d="M100,18 q-14,20 -2,42 q10,20 -4,42 l22,0 q12,-22 2,-42 q-8,-22 2,-42 Z"/>
+              <path class="band snow" d="M92,16 q-20,18 -6,44 q12,24 -6,46 l40,0 q16,-20 4,-44 q-10,-26 4,-46 Z"/>
+              <rect class="band" x="52" y="26" width="14" height="70" rx="7"/>
+            </g>
+            <g class="fin-p"><path class="fin" d="M118,64 Q102,90 122,92 Q132,80 126,64 Z"/></g>
+            <circle cx="166" cy="50" r="6.5" fill="#10222b"/>
+            <circle cx="168" cy="48" r="2.2" fill="#f6fbfa"/>
+          </svg>
+        </div>
+        <h3>Snowflake</h3>
+        <p class="sci">Designer ocellaris</p>
+        <p>No two alike — irregular drifts of white across orange. Batches vary; follow the page to catch new clutches.</p>
+        <div class="card-foot"><span class="size">Tank-bred juvenile</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for stock</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- −26 m ---------------------------------------------------------- -->
+  <section class="zone" id="why">
+    <span class="zone-tag reveal">−26 m &middot; Twilight zone</span>
+    <p class="pull reveal">Fed on live feeds from day one — that's why hatchery fish <span class="accent">thrive</span>.</p>
+    <div class="why-grid">
+      <div class="reveal">
+        <span class="n">GROWN, NOT CAUGHT</span>
+        <h3>Hardier by upbringing</h3>
+        <p>Tank-bred fish have never seen a cyanide bottle or a cargo hold. They arrive already
+          adjusted to aquarium life and already eating — the two things that kill wild-caught fish.</p>
+      </div>
+      <div class="reveal">
+        <span class="n">FED LIKE THE OCEAN FEEDS</span>
+        <h3>Live prey, real instincts</h3>
+        <p>Pods and rotifers trigger natural hunting behaviour. Colours deepen, breeding pairs
+          condition faster, and "impossible" feeders like mandarins simply start eating.</p>
+      </div>
+      <div class="reveal">
+        <span class="n">CULTURED IN CHENNAI</span>
+        <h3>Fresh beats imported</h3>
+        <p>Our cultures never cross a border or sit in transit for a week. What reaches your tank
+          is alive, dense, and hours — not weeks — from harvest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- −40 m ---------------------------------------------------------- -->
+  <section class="zone" id="visit">
+    <div class="visit-card reveal">
+      <span class="zone-tag">−40 m &middot; The hatchery</span>
+      <h2>Surface when <span class="accent">you're ready</span></h2>
+      <p class="lede">Orders, stock updates and hatchery visits all start with a DM. Follow the
+        page to see clutches hatch, cultures bloom, and new batches announced first.</p>
+      <div class="visit-meta">
+        <span>Based in<b>Chennai, Tamil Nadu, India</b></span>
+        <span>Order &amp; enquiries<b>Instagram DM</b></span>
+        <span>Follow<b>@orangeaquaculture</b></span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Message the hatchery</a>
+        <a class="btn btn-ghost" href="#top">Back to surface</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Orange Aquaculture &middot; Chennai, India &middot;
+  <a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Instagram</a>
+</footer>
+
+<aside class="gauge" aria-hidden="true">
+  <div class="gauge-track"></div>
+  <div class="gauge-marker" id="gaugeMarker">
+    <span class="gauge-read"><b id="depthNum">0.0</b>&nbsp;m</span>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
