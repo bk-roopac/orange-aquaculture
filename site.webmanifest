@@ -1,0 +1,14 @@
+{
+  "name": "Orange Aquaculture",
+  "short_name": "Orange Aq",
+  "description": "Tank-bred clownfish and live feed cultures from a Chennai marine hatchery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01080f",
+  "theme_color": "#04121d",
+  "icons": [
+    { "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -394,7 +394,7 @@ h2 { font-size: clamp(2rem, 5.5vw, 3.4rem); margin-bottom: 1rem; }
 }
 
 .card-art {
-  height: 190px;
+  height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -402,9 +402,6 @@ h2 { font-size: clamp(2rem, 5.5vw, 3.4rem); margin-bottom: 1rem; }
   border-radius: 12px;
   background: radial-gradient(120% 90% at 50% 110%, rgba(87, 228, 212, 0.07), transparent 70%);
   overflow: hidden;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .card:hover .card-art { filter: url(#waterWobble); }
 }
 
 /* rising bubbles on card hover */
@@ -489,84 +486,20 @@ h2 { font-size: clamp(2rem, 5.5vw, 3.4rem); margin-bottom: 1rem; }
 .card-foot a { color: var(--orange); font-weight: 700; }
 .card-foot a:hover { color: var(--foam); }
 
-/* ---------- culture bottles (CSS illustration) ---------- */
+/* ---------- culture bottles (product shots) ---------- */
 
-.bottle {
-  position: relative;
-  width: 86px;
-  height: 150px;
-  border-radius: 14px 14px 18px 18px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 30%),
-    var(--liquid, linear-gradient(#2e7d32, #1b4d20));
-  border: 2px solid rgba(200, 240, 255, 0.28);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), inset -8px 0 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.4s ease;
-}
-.bottle::before { /* cap */
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 16px;
-  border-radius: 5px 5px 0 0;
-  background: var(--orange);
-}
-.bottle::after { /* glass highlight */
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 9px;
-  width: 10px;
-  height: 70%;
-  border-radius: 999px;
-  background: linear-gradient(rgba(255, 255, 255, 0.35), transparent);
-}
-.bottle .label {
-  position: absolute;
-  left: -2px;
-  right: -2px;
-  bottom: 26px;
-  padding: 0.3em 0;
-  text-align: center;
-  background: rgba(243, 247, 245, 0.92);
-  color: #16323a;
-  font-family: var(--mono);
-  font-size: 0.56rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.bottle .swirl {
-  position: absolute;
-  inset: 6px;
-  border-radius: inherit;
-  overflow: hidden;
-  opacity: 0.85;
-}
-.bottle .swirl::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(24% 18% at 30% 40%, rgba(255, 255, 255, 0.16), transparent 70%),
-    radial-gradient(18% 14% at 66% 62%, rgba(255, 255, 255, 0.12), transparent 70%),
-    radial-gradient(12% 10% at 48% 24%, rgba(255, 255, 255, 0.10), transparent 70%);
+.bottle-shot {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transform-origin: 50% 62%;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.55));
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card:hover .bottle { transform: rotate(-4deg) translateY(-4px); }
-  .card:hover .bottle .swirl::before { animation: swirl 3.2s linear infinite; }
+  .card:hover .bottle-shot { transform: scale(0.9); }
 }
-@keyframes swirl {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.bottle--phyto { --liquid: linear-gradient(#3f9e3c, #14461f); }
-.bottle--pods { --liquid: linear-gradient(#8a9c6a, #3c4a2a); }
-.bottle--roti { --liquid: linear-gradient(#b9a86a, #5c4d26); }
 
 /* ---------- clownfish cards ---------- */
 
@@ -653,6 +586,21 @@ h2 { font-size: clamp(2rem, 5.5vw, 3.4rem); margin-bottom: 1rem; }
   color: var(--seafog-dim);
 }
 .visit-meta b { color: var(--foam); font-weight: 600; display: block; margin-top: 0.3em; }
+.visit-meta a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(87, 228, 212, 0.35); }
+.visit-meta a:hover { color: var(--cyan); }
+
+/* the not-on-Instagram escape hatch */
+.no-ig {
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+  color: var(--seafog-dim);
+}
+.no-ig a {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(87, 228, 212, 0.4);
+}
+.no-ig a:hover { color: var(--foam); }
 
 /* ---------- footer ---------- */
 

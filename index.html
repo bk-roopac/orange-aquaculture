@@ -6,7 +6,61 @@
 <meta name="theme-color" content="#04121d">
 <meta name="description" content="Orange Aquaculture — tank-bred clownfish and live feed cultures (phytoplankton, copepods, rotifers) raised in Chennai for India's marine aquarists.">
 <title>Orange Aquaculture — Chennai Marine Hatchery &amp; Live Feeds</title>
+<link rel="canonical" href="https://orangeaquaculture.com/">
+
+<!-- favicons -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- share previews (WhatsApp, Twitter/X, Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Orange Aquaculture">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://orangeaquaculture.com/">
+<meta property="og:title" content="Orange Aquaculture — Tank-Bred Clownfish &amp; Live Feeds, Chennai">
+<meta property="og:description" content="Life here is grown, not caught. Tank-bred clownfish and live phytoplankton, copepods and rotifers, raised in a Chennai marine hatchery.">
+<meta property="og:image" content="https://orangeaquaculture.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Orange Aquaculture 500 ml bottles of live copepods, phytoplankton and rotifers">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orange Aquaculture — Tank-Bred Clownfish &amp; Live Feeds, Chennai">
+<meta name="twitter:description" content="Life here is grown, not caught. Tank-bred clownfish and live phytoplankton, copepods and rotifers, raised in a Chennai marine hatchery.">
+<meta name="twitter:image" content="https://orangeaquaculture.com/assets/og-image.jpg">
+
 <link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://orangeaquaculture.com/#business",
+  "name": "Orange Aquaculture",
+  "description": "Marine ornamental hatchery in Chennai breeding tank-bred clownfish and growing live feed cultures — phytoplankton, copepods and rotifers.",
+  "url": "https://orangeaquaculture.com/",
+  "email": "orangeaquaculture@gmail.com",
+  "image": "https://orangeaquaculture.com/assets/og-image.jpg",
+  "logo": "https://orangeaquaculture.com/assets/favicon-512.png",
+  "slogan": "Life here is grown, not caught.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "sameAs": ["https://www.instagram.com/orangeaquaculture"],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Live Phytoplankton (Nannochloropsis), 500 ml" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Live Copepods, 500 ml" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Live Rotifers, 500 ml" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Tank-bred clownfish juveniles" } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -14,17 +68,9 @@
 <canvas id="sea" aria-hidden="true"></canvas>
 <div class="torch" aria-hidden="true"></div>
 
-<!-- shared defs: water refraction filter + clownfish symbol -->
+<!-- shared defs: clownfish symbol -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <filter id="waterWobble" x="-15%" y="-15%" width="130%" height="130%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.026" numOctaves="2" seed="7" result="noise">
-        <animate attributeName="baseFrequency" dur="7s"
-          values="0.014 0.026;0.02 0.034;0.014 0.026" repeatCount="indefinite"/>
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
-    </filter>
-
     <!-- nav-logo symbol: inline var() styles because CSS can't pierce <use> shadow trees -->
     <symbol id="clownfish" viewBox="0 0 210 120">
       <path style="fill:var(--fish-fin,#d97b0e)" d="M44,60 Q6,26 14,58 Q6,94 44,60 Z"/>
@@ -69,9 +115,9 @@
     <div class="shafts" aria-hidden="true"></div>
     <div class="hero-inner">
       <span class="zone-tag">0 m &middot; Surface &middot; Chennai, India</span>
-      <h1>A reef is <span class="accent">grown</span>,<br>not caught.</h1>
+      <h1>Life here is <span class="accent">grown</span>,<br>not caught.</h1>
       <p class="lede">Tank-bred clownfish and live feed cultures — phytoplankton, copepods and
-        rotifers — raised in a Chennai marine hatchery for India's reefers.</p>
+        rotifers — raised in a Chennai marine hatchery for India's marine aquarists.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#feeds">Begin the dive</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">@orangeaquaculture</a>
@@ -88,24 +134,11 @@
       <span class="zone-tag reveal">−6 m &middot; Sunlight zone</span>
       <h2 class="reveal">Live feed <span class="accent">cultures</span></h2>
       <p class="lede reveal">The bottom of the food chain, bottled fresh. Every culture is grown
-        in-house and harvested to order — hover a bottle to give it a gentle swirl.</p>
+        in-house and harvested to order — never decanted from stock.</p>
     </div>
     <div class="card-row">
       <article class="card reveal">
-        <div class="card-art"><div class="bottle bottle--phyto"><span class="swirl"></span><span class="label">Phyto &middot; 500&nbsp;ml</span></div></div>
-        <h3>Phytoplankton</h3>
-        <p class="sci">Live greenwater culture</p>
-        <p>Dense, living microalgae — the engine behind every thriving reef. Feed it to your pods, your corals and your filter feeders.</p>
-        <ul>
-          <li>Keeps copepod &amp; rotifer cultures productive</li>
-          <li>Food for corals, clams and feather dusters</li>
-          <li>Harvested at peak density, never stored</li>
-        </ul>
-        <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-art"><div class="bottle bottle--pods"><span class="swirl"></span><span class="label">Pods &middot; 500&nbsp;ml</span></div></div>
+        <div class="card-art"><img class="bottle-shot" src="assets/pods.webp" alt="500 ml bottle of Orange Aquaculture live copepods" width="216" height="520" loading="lazy" decoding="async"></div>
         <h3>Copepods</h3>
         <p class="sci">Live saltwater pods</p>
         <p>The feed finicky fish ask for by name. Seed your refugium, or watch a stubborn mandarin finally start hunting.</p>
@@ -118,14 +151,27 @@
       </article>
 
       <article class="card reveal">
-        <div class="card-art"><div class="bottle bottle--roti"><span class="swirl"></span><span class="label">Rotifers &middot; 500&nbsp;ml</span></div></div>
+        <div class="card-art"><img class="bottle-shot" src="assets/phyto.webp" alt="500 ml bottle of Orange Aquaculture live phytoplankton, Nannochloropsis" width="217" height="520" loading="lazy" decoding="async"></div>
+        <h3>Phytoplankton</h3>
+        <p class="sci">Live greenwater culture</p>
+        <p>Dense, living microalgae — the engine behind every thriving tank. Feed it to your pods, your rotifer cultures and your filter feeders.</p>
+        <ul>
+          <li>Keeps copepod &amp; rotifer cultures productive</li>
+          <li>Food for pods, rotifers and feather dusters</li>
+          <li>Harvested at peak density, never stored</li>
+        </ul>
+        <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-art"><img class="bottle-shot" src="assets/roti.webp" alt="500 ml bottle of Orange Aquaculture live rotifers" width="202" height="520" loading="lazy" decoding="async"></div>
         <h3>Rotifers</h3>
         <p class="sci">Hatchery-grade live feed</p>
         <p>First bites for fry. The same culture we raise our own clownfish larvae on, enriched with our live phyto.</p>
         <ul>
           <li>Essential first feed for breeding projects</li>
           <li>Enriched on live greenwater, not powder</li>
-          <li>Sized right for larval mouths &amp; corals</li>
+          <li>Sized right for the smallest larval mouths</li>
         </ul>
         <div class="card-foot"><span class="size">500 ml bottle</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for price</a></div>
       </article>
@@ -162,7 +208,7 @@
         </div>
         <h3>Ocellaris</h3>
         <p class="sci">Amphiprion ocellaris</p>
-        <p>The classic. Three clean white bands, an easy temperament, and the fish that starts most reefers' stories.</p>
+        <p>The classic. Three clean white bands, an easy temperament, and the fish that starts most saltwater stories.</p>
         <div class="card-foot"><span class="size">Tank-bred juvenile</span><a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">DM for stock</a></div>
       </article>
 
@@ -249,17 +295,19 @@
     <div class="visit-card reveal">
       <span class="zone-tag">−40 m &middot; The hatchery</span>
       <h2>Surface when <span class="accent">you're ready</span></h2>
-      <p class="lede">Orders, stock updates and hatchery visits all start with a DM. Follow the
+      <p class="lede">Orders, stock updates and hatchery visits all start with a message. Follow the
         page to see clutches hatch, cultures bloom, and new batches announced first.</p>
       <div class="visit-meta">
         <span>Based in<b>Chennai, Tamil Nadu, India</b></span>
-        <span>Order &amp; enquiries<b>Instagram DM</b></span>
+        <span>Email<b><a href="mailto:orangeaquaculture@gmail.com">orangeaquaculture@gmail.com</a></b></span>
         <span>Follow<b>@orangeaquaculture</b></span>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Message the hatchery</a>
-        <a class="btn btn-ghost" href="#top">Back to surface</a>
+        <a class="btn btn-primary" href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Message on Instagram</a>
+        <a class="btn btn-ghost" href="mailto:orangeaquaculture@gmail.com?subject=Order%20enquiry%20%E2%80%94%20Orange%20Aquaculture">Email the hatchery</a>
       </div>
+      <p class="no-ig">Not on Instagram? Email works just as well — tell us what you're after and
+        your city, and we'll reply within a day.</p>
     </div>
   </section>
 
@@ -267,7 +315,8 @@
 
 <footer>
   &copy; 2026 Orange Aquaculture &middot; Chennai, India &middot;
-  <a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://www.instagram.com/orangeaquaculture" target="_blank" rel="noopener">Instagram</a> &middot;
+  <a href="mailto:orangeaquaculture@gmail.com">orangeaquaculture@gmail.com</a>
 </footer>
 
 <aside class="gauge" aria-hidden="true">

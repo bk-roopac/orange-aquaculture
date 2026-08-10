@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /plan-b/
+
+Sitemap: https://orangeaquaculture.com/sitemap.xml
