@@ -616,6 +616,23 @@ footer {
   color: var(--seafog-dim);
 }
 footer a { color: var(--cyan-dim); }
+footer .foot-line { margin: 0; }
+
+/* compliance statement — body font, sentence case: the footer's uppercase
+   mono is fine for one line but unreadable across a paragraph */
+.compliance {
+  max-width: 64ch;
+  margin: 0 auto 1.9rem;
+  padding-bottom: 1.7rem;
+  border-bottom: 1px solid rgba(87, 228, 212, 0.13);
+  font-family: var(--body);
+  font-size: 0.8rem;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+  text-transform: none;
+  text-wrap: pretty;
+  color: var(--seafog-dim);
+}
 
 /* ---------- depth gauge ---------- */
 
