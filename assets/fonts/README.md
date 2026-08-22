@@ -1,31 +1,42 @@
 # Self-hosted fonts
 
 These are shipped with the site so every visitor renders the same faces. The
-site previously used a system font stack led by Avenir Next, which is installed
+site originally used a system font stack led by Avenir Next, which is installed
 on macOS but not on Windows, so Windows silently fell back to different
 typefaces.
 
-All three are variable fonts — one file covers the whole weight range — and are
-subset to Latin (`U+0000-00FF` plus common punctuation).
-
-| File | Family | Axes | Used for |
+| File | Family | Weight | Used for |
 |---|---|---|---|
-| `archivo-var.woff2` | Archivo | `wght` 100–900, `wdth` 62–125 | Display / headings, at `font-stretch: 75%` |
-| `nunitosans-var.woff2` | Nunito Sans | `wght` 200–1000 | Body text |
-| `jetbrainsmono-var.woff2` | JetBrains Mono | `wght` 100–800 | Labels, nav, buttons, data |
+| `pally-400.woff2` | Pally | 400 | Display, reserve weight |
+| `pally-500.woff2` | Pally | 500 | Brand lockup subtitle |
+| `pally-700.woff2` | Pally | 700 | Headings, card titles, pull quote |
+| `switzer-400.woff2` | Switzer | 400 | Body text |
+| `switzer-500.woff2` | Switzer | 500 | Body emphasis |
+| `jetbrainsmono-var.woff2` | JetBrains Mono | 100–800 variable | Labels, nav, buttons, data |
+
+**Pally ships only at 400, 500 and 700.** Nothing in the CSS may ask for 600 or
+800 — the browser would fake the weight by smearing the outlines. `--display-bold`
+in `styles.css` exists so heading weight is set in one place. Pally is also normal
+width, not condensed like the face it replaced, so display type runs roughly 7%
+wider. The existing clamp() sizes absorb that; new headline copy should be
+checked at a 390px viewport before shipping.
+
+Only JetBrains Mono declares a `unicode-range`, because it is the Latin subset
+from Google Fonts. The Fontshare files are not subset, so constraining them
+would make characters outside the range fall back to another font.
 
 `plan-b/fonts/` carries its own copy of `jetbrainsmono-var.woff2` so that page
 resolves its fonts relative to itself.
 
 ## Licence
 
-All three are licensed under the SIL Open Font License 1.1, which permits
-bundling and redistribution with a website, including commercially. Full text:
-<https://openfontlicense.org/open-font-license-official-text/>
+- **Pally** and **Switzer** — Indian Type Foundry, via [Fontshare](https://www.fontshare.com).
+  Free for personal and commercial use, including self-hosting on a website.
+- **JetBrains Mono** — SIL Open Font License 1.1. Copyright The JetBrains Mono
+  Project Authors (<https://github.com/JetBrains/JetBrainsMono>). Full text:
+  <https://openfontlicense.org/open-font-license-official-text/>
 
-- Archivo — Copyright The Archivo Project Authors (<https://github.com/Omnibus-Type/Archivo>)
-- Nunito Sans — Copyright The Nunito Sans Project Authors (<https://github.com/googlefonts/NunitoSans>)
-- JetBrains Mono — Copyright The JetBrains Mono Project Authors (<https://github.com/JetBrains/JetBrainsMono>)
-
-Files were retrieved from the Google Fonts CSS API; to refresh them, request the
-family with a modern browser User-Agent and download the `latin` subset `woff2`.
+To refresh the Fontshare files, request the family from
+`https://api.fontshare.com/v2/css?f[]=<slug>@<weights>` with a modern browser
+User-Agent and download the `woff2` from each `@font-face` block. Request one
+family per call — asking for several at once silently drops most of them.
